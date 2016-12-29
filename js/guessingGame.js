@@ -136,4 +136,11 @@ $(document).ready(function(){
 		// Enable buttons
 		$("#hint, #submit").attr("disabled", false);
 	});
+
+	// When player presses the reset button
+	$('#hint').on('click', function(){
+		var hint = game.provideHint();
+		$("#title").text('Hint: It\'s one of these numbers ' + hint.join(', '));
+		$("#hint").attr("disabled", true);
+	});
 });
