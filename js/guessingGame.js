@@ -96,7 +96,33 @@ Game.prototype.provideHint = function() {
 	return shuffle(result);
 }
 
+function submitGuess(game) {
+	// Get value of input
+	var input = parseInt($("#player-input").val());
+	// If input is empty
+	if (input == '') {
+		alert('You should guess a number between 1 and 100.');
+	} else {
+		$("#title").text(game.playersGuessSubmission(input));
+	}
+
+	// Clear dom input field
+	$("#player-input").val('');
+}
+
 $(document).ready(function(){
 	// Create new Game
 	var game = newGame();
+
+	// When player presses the Go button
+	$('#submit').on('click', function(){
+		submitGuess(game);
+	});
+
+	// When player presses enter
+	$(document).keypress(function(e) {
+    	if(e.which == 13) {
+    		submitGuess(game);
+    	}
+	});
 });
