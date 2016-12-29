@@ -125,4 +125,15 @@ $(document).ready(function(){
     		submitGuess(game);
     	}
 	});
+
+	// When player presses the reset button
+	$('#reset').on('click', function(){
+		game = newGame();
+		// Reset title, subtitle and guesses values
+		$("#title").text("Guessing Game");
+		$("#subtitle").text("Guess a number between 1 and 100.");
+		$('.guess').text('-');
+		// Enable buttons
+		$("#hint, #submit").attr("disabled", false);
+	});
 });
