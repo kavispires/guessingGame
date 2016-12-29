@@ -18,6 +18,10 @@ function shuffle(array) {
 	return array;
 }
 
+var newGame = function() {
+	return new Game();
+}
+
 var Game = function() {
 	this.playersGuess = null;
 	this.pastGuesses = [];
