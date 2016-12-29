@@ -23,3 +23,11 @@ var Game = function() {
 	this.pastGuesses = [];
 	this.winningNumber = generateWinningNumber();
 }
+
+Game.prototype.difference = function() {
+	if (this.playersGuess > this.winningNumber) {
+		return this.playersGuess - this.winningNumber;
+	} else {
+		return this.winningNumber - this.playersGuess; 
+	}
+}
