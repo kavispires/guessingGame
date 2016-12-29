@@ -51,12 +51,139 @@ textarea {
     padding: 0.2em 0;
 }
 
+* {
+    box-sizing: border-box;
+}
+
+ul, li {
+    margin: 0;
+    padding: 0;
+}
+
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
 
+html, 
+body {
+    background: #ccc;
+    height: 100%;
+    font-family: 'Baloo Thambi', cursive;
+    overflow: hidden;
+}
 
+.container {
+    -webkit-display: flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    height: calc(100% - 20px);
+    margin: 10px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    background: #fff;
+}
 
+header {
+    width: 100%;
+    text-align: center;
+    flex: 0 1 auto; /* flex-grow, flex-shrink, flex-basis */
+    padding: 10px;
+}
+
+.main {
+    flex: 1 1 auto;
+    padding: 20px 10px;
+    background: #FFA600;
+    display: flex;
+    justify-content: center;
+}
+
+.center {
+    align-self: center;
+}
+
+.input-parent {
+    text-align: center;
+    display: block;
+}
+
+#player-input {
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    line-height: 100px;
+    text-align: center;
+    font-size: 50px;
+    transform: translateX(20px);
+}
+
+.btn {
+    border: none;
+    border-radius: 3px;
+    text-align: center;
+    background: #fff;
+}
+
+.btn:disabled {
+    color: #666;
+    background: #999;
+}
+
+.btn-go {
+    width: 35px;
+    height: 35px;
+    border-radius: 35px;
+    text-transform: uppercase;
+    line-height: 34px;
+    transform: translate(-20px, 23px);
+}
+
+.guesses {
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.guess-list {
+    margin: 0;
+}
+
+.guesses li {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border: 2px #eee solid;
+    border-radius: 5px;
+}
+
+.nav {
+    margin-top: 30px;
+}
+
+.nav .btn {
+    width: 60px;
+}
+
+footer {
+    flex: 0 1 auto;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+}
+
+footer img {
+    width: 50%;
+    max-width: 300px;
+    margin: 0 auto;
+    display: block;
+}
+
+footer a {
+    color: orange;
+}
 
 /* ==========================================================================
    Media Queries
