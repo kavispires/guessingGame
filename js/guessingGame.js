@@ -46,4 +46,34 @@ Game.prototype.playersGuessSubmission = function(num) {
 		throw "That is an invalid guess." 
 	}
 	this.playersGuess = num;
+	return this.checkGuess();
+}
+
+Game.prototype.checkGuess = function() {
+	// If player has guessed the right number
+	if (this.playersGuess === this.winningNumber) {
+		return "You Win!";
+	// If player has guessed a repeated guess
+	} else if (this.pastGuesses.indexOf(this.playersGuess) != -1) {
+		return "You have already guessed that number."
+	} else {
+		this.pastGuesses.push(this.playersGuess);
+	}
+
+	// If this was the 5th guess and player was wrong
+	if (this.pastGuesses.length === 5) {
+		return "You Lose.";
+	} else {
+		// Returns string depending on difference
+		var difference = this.difference();
+		if (difference < 10) {
+			return "You\'re burning up!";
+		} else if (difference >= 10 && difference < 25) {
+			return "You\'re lukewarm.";
+		} else if (difference >= 25 && difference < 50) {
+			return "You\'re a bit chilly.";
+		} else {
+			return "You\'re ice cold!";
+		}
+	}		
 }
