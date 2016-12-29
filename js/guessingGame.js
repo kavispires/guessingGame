@@ -95,3 +95,8 @@ Game.prototype.provideHint = function() {
 	}
 	return shuffle(result);
 }
+
+$(document).ready(function(){
+	// Create new Game
+	var game = newGame();
+});
