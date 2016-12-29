@@ -77,3 +77,17 @@ Game.prototype.checkGuess = function() {
 		}
 	}		
 }
+
+Game.prototype.provideHint = function() {
+	var result = [];
+	// Add winning number
+	result.push(this.winningNumber);
+	// Add two 'different' random numbers
+	while (result.length < 3) {
+		var random = generateWinningNumber();
+		if (random != this.winningNumber) {
+			result.push(random);
+		}
+	}
+	return shuffle(result);
+}
