@@ -146,13 +146,78 @@ header {
     margin-top: 30px;
 }
 
-.guess-list {
+.guess-list,
+.guess-hints {
     margin: 0;
 }
 
 .guesses li {
     display: inline-block;
     width: 40px;
+}
+
+.guesses .hints {
+    height: 20px;
+    line-height: 40px;
+}
+
+/* = HINT ARROWS = */
+
+.arrow-up {
+    -webkit-mask: url(../img/arrow-up.svg) no-repeat 50% 50%;
+    mask: url(../img/arrow-up.svg) no-repeat 50% 50%;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+}
+
+.arrow-down {
+    -webkit-mask: url(../img/arrow-down.svg) no-repeat 50% 50%;
+    mask: url(../img/arrow-down.svg) no-repeat 50% 50%;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+}
+
+.star {
+    -webkit-mask: url(../img/star.svg) no-repeat 50% 50%;
+    mask: url(../img/star.svg) no-repeat 50% 50%;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+}
+
+.ex {
+    -webkit-mask: url(../img/ex.svg) no-repeat 50% 50%;
+    mask: url(../img/ex.svg) no-repeat 50% 50%;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+}
+
+.color-burning {
+    background: #FF2A00;
+}
+
+.color-lukewarm {
+    background: #FF8158;
+}
+
+.color-chilly {
+    background: #897EA9;
+}
+
+.color-icecold {
+    background: #5F59A9;
+}
+
+.color-victory {
+    background: #FFDB99;
+}
+
+.color-over {
+    background: #000;
+}
+
+/* =============== */
+
+.guesses .guess {
     height: 40px;
     line-height: 40px;
     border: 2px #eee solid;

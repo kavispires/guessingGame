@@ -54,16 +54,23 @@ Game.prototype.playersGuessSubmission = function(num) {
 }
 
 Game.prototype.checkGuess = function() {
-	// If player has guessed the right number
+	// If player has guessed a repeated guess
+	if (this.pastGuesses.indexOf(this.playersGuess) != -1) {
+		return "You have already guessed that number."
+	}
+
+	// Push guess to pastGuesses
+	this.pastGuesses.push(this.playersGuess);
+
+	// Check Win condition
 	if (this.playersGuess === this.winningNumber) {
 		$("#hint, #submit").attr("disabled", true);
 		$("#subtitle").text("The number was " + this.winningNumber + ". Click the Reset button to play again.");
+		// Add Victory Star
+		$('.guess-hints li:nth-child('+ this.pastGuesses.length +')').addClass("star").addClass("color-victory");
 		return "You Win!";
-	// If player has guessed a repeated guess
-	} else if (this.pastGuesses.indexOf(this.playersGuess) != -1) {
-		return "You have already guessed that number."
 	} else {
-		this.pastGuesses.push(this.playersGuess);
+		// Add number to previous guesses list
 		$('.guess-list li:nth-child('+ this.pastGuesses.length +')').text(this.playersGuess);
 	}
 
@@ -71,23 +78,37 @@ Game.prototype.checkGuess = function() {
 	if (this.pastGuesses.length === 5) {
 		$("#hint, #submit").attr("disabled", true);
 		$("#subtitle").text("The number was " + this.winningNumber + ". Click the Reset button to play again.");
+		// Add Lose X
+		$('.guess-hints li:nth-child('+ this.pastGuesses.length +')').addClass("ex").addClass("color-over");
 		return "You Lose.";
 	} else {
 		// Tells player if s/he should guess higher or lower depending of the result of isLower
 		if(this.isLower()) {
 			$('#subtitle').text("Guess higher!");
+			// Add arrow to hints
+			$('.guess-hints li:nth-child('+ this.pastGuesses.length +')').addClass("arrow-up");
 		} else {
 			$('#subtitle').text("Guess lower!");
+			// Add arrow to hints
+			$('.guess-hints li:nth-child('+ this.pastGuesses.length +')').addClass("arrow-down");
 		}
 		// Returns string depending on difference
 		var difference = this.difference();
 		if (difference < 10) {
+			// Add color to hints
+			$('.guess-hints li:nth-child('+ this.pastGuesses.length +')').addClass("color-burning");
 			return "You\'re burning up!";
 		} else if (difference >= 10 && difference < 25) {
+			// Add color to hints
+			$('.guess-hints li:nth-child('+ this.pastGuesses.length +')').addClass("color-lukewarm");
 			return "You\'re lukewarm.";
 		} else if (difference >= 25 && difference < 50) {
+			// Add color to hints
+			$('.guess-hints li:nth-child('+ this.pastGuesses.length +')').addClass("color-chilly");
 			return "You\'re a bit chilly.";
 		} else {
+			// Add color to hints
+			$('.guess-hints li:nth-child('+ this.pastGuesses.length +')').addClass("color-icecold");
 			return "You\'re ice cold!";
 		}
 	}		
@@ -146,6 +167,8 @@ $(document).ready(function(){
 		$('.guess').text('-');
 		// Enable buttons
 		$("#hint, #submit").attr("disabled", false);
+		// Remove all arrows and stars and exs
+		$(".guess-hints li").removeClass().addClass('hints');
 	});
 
 	// When player presses the reset button
