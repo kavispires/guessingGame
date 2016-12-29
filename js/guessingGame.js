@@ -17,3 +17,9 @@ function shuffle(array) {
 	
 	return array;
 }
+
+var Game = function() {
+	this.playersGuess = null;
+	this.pastGuesses = [];
+	this.winningNumber = generateWinningNumber();
+}
