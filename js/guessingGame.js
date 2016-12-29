@@ -56,18 +56,29 @@ Game.prototype.playersGuessSubmission = function(num) {
 Game.prototype.checkGuess = function() {
 	// If player has guessed the right number
 	if (this.playersGuess === this.winningNumber) {
+		$("#hint, #submit").attr("disabled", true);
+		$("#subtitle").text("The number was " + this.winningNumber + ". Click the Reset button to play again.");
 		return "You Win!";
 	// If player has guessed a repeated guess
 	} else if (this.pastGuesses.indexOf(this.playersGuess) != -1) {
 		return "You have already guessed that number."
 	} else {
 		this.pastGuesses.push(this.playersGuess);
+		$('.guess-list li:nth-child('+ this.pastGuesses.length +')').text(this.playersGuess);
 	}
 
 	// If this was the 5th guess and player was wrong
 	if (this.pastGuesses.length === 5) {
+		$("#hint, #submit").attr("disabled", true);
+		$("#subtitle").text("The number was " + this.winningNumber + ". Click the Reset button to play again.");
 		return "You Lose.";
 	} else {
+		// Tells player if s/he should guess higher or lower depending of the result of isLower
+		if(this.isLower()) {
+			$('#subtitle').text("Guess higher!");
+		} else {
+			$('#subtitle').text("Guess lower!");
+		}
 		// Returns string depending on difference
 		var difference = this.difference();
 		if (difference < 10) {
