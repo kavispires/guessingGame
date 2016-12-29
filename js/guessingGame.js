@@ -31,3 +31,11 @@ Game.prototype.difference = function() {
 		return this.winningNumber - this.playersGuess; 
 	}
 }
+
+Game.prototype.isLower = function() {
+	if (this.playersGuess > this.winningNumber) {
+		return false;
+	} else {
+		return true; 
+	}
+}
