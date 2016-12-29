@@ -39,3 +39,11 @@ Game.prototype.isLower = function() {
 		return true; 
 	}
 }
+
+Game.prototype.playersGuessSubmission = function(num) {
+	// Stop Invalid guesses
+	if (num <= 0 || num > 100 || isNaN(num)) { 
+		throw "That is an invalid guess." 
+	}
+	this.playersGuess = num;
+}
