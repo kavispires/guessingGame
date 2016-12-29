@@ -13,6 +13,38 @@
     </head>
     <body>
 
+        <div class="container">
+            <header>
+                <h1 id="title">Guessing Game</h1>
+                <p id="subtitle">Guess a number between 1 and 100.</p>
+            </header>
+            <div class="main">
+                <div class="center">
+                    <div class="input-parent">
+                        <input type="number" name="" placeholder="#" maxlength="3" autofocus="autofocus" id="player-input">
+                        <button class="btn btn-go" id="submit">Go</button>
+                    </div>
+                    <div class="guesses">
+                        <p>Previous Guesses</p>
+                        <ul class="guess-list">
+                            <li class="guess">_</li>
+                            <li class="guess">_</li>
+                            <li class="guess">_</li>
+                            <li class="guess">_</li>
+                            <li class="guess">_</li>
+                        </ul>
+                        <div class="nav">
+                            <button class="btn" id="reset">Reset</button>
+                            <button class="btn" id="hint">Hint</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer>
+                <a href="http://www.fullstack.com" target="_blank"><img src="img/fullstacklogo.png"></a>
+                <small>Project by <a href="http://www.github.com/kavispires" target="_blank">Fabiano 'Kavis' Pires</a>.</small>
+            </footer>
+        </div><!-- /container -->
 
         <script src="js/vendor/jquery-1.11.2.min.js"></script>
         <script src="js/guessingGame.js"></script>
