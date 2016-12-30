@@ -15,4 +15,4 @@ When you make a guess, the game will tell if you if you should guess a higher or
 
 Up and Down arrows also remind you of previous guesses: if they should be higher or lower and the colors of the arrows show how close you were with that number.
 
-If you are stuck, you may press the _hint_ button. It will give you three possible numbers, making everything much easier.
+If you are stuck, you may press the _hint_ button once. It will give you some possible numbers, making everything much easier. But be aware, you'll get hints equal to the number of guesses you have left plus 1.

@@ -115,14 +115,20 @@ Game.prototype.checkGuess = function() {
 }
 
 Game.prototype.provideHint = function() {
+	// The hints number is equal to the number of missing guesses + 1.
 	var result = [];
 	// Add winning number
 	result.push(this.winningNumber);
-	// Add two 'different' random numbers
-	while (result.length < 3) {
+	// Calculate how many hints
+	var totalHints = 6 - this.pastGuesses.length;
+	// Add 'different' random numbers
+	while (result.length < totalHints) {
 		var random = generateWinningNumber();
 		if (random != this.winningNumber) {
-			result.push(random);
+			// only if random is different than any past wrong guess
+			if(this.pastGuesses.indexOf(random) == -1) {
+				result.push(random);
+			}
 		}
 	}
 	return shuffle(result);
