@@ -20,13 +20,13 @@ function shuffle(array) {
 
 var newGame = function() {
 	return new Game();
-}
+};
 
 var Game = function() {
 	this.playersGuess = null;
 	this.pastGuesses = [];
 	this.winningNumber = generateWinningNumber();
-}
+};
 
 Game.prototype.difference = function() {
 	if (this.playersGuess > this.winningNumber) {
@@ -34,7 +34,7 @@ Game.prototype.difference = function() {
 	} else {
 		return this.winningNumber - this.playersGuess; 
 	}
-}
+};
 
 Game.prototype.isLower = function() {
 	if (this.playersGuess > this.winningNumber) {
@@ -42,21 +42,21 @@ Game.prototype.isLower = function() {
 	} else {
 		return true; 
 	}
-}
+};
 
 Game.prototype.playersGuessSubmission = function(num) {
 	// Stop Invalid guesses
 	if (num <= 0 || num > 100 || isNaN(num)) { 
-		throw "That is an invalid guess." 
+		throw "That is an invalid guess." ;
 	}
 	this.playersGuess = num;
 	return this.checkGuess();
-}
+};
 
 Game.prototype.checkGuess = function() {
 	// If player has guessed a repeated guess
 	if (this.pastGuesses.indexOf(this.playersGuess) != -1) {
-		return "You have already guessed that number."
+		return "You have already guessed that number.";
 	}
 
 	// Push guess to pastGuesses
@@ -112,7 +112,7 @@ Game.prototype.checkGuess = function() {
 			return "You\'re ice cold!";
 		}
 	}		
-}
+};
 
 Game.prototype.provideHint = function() {
 	// The hints number is equal to the number of missing guesses + 1.
@@ -132,7 +132,7 @@ Game.prototype.provideHint = function() {
 		}
 	}
 	return shuffle(result);
-}
+};
 
 function submitGuess(game) {
 	// Get value of input
